@@ -21,10 +21,16 @@ connection.once('open', () => {
 const moviesRouter = require('./routes/movies');
 const marvelRouter = require('./routes/marvelMovies');
 const dcRouter = require('./routes/dcMovies');
+const starWarsRouter = require('./routes/starWarsMovies');
+const jamesBondRouter = require('./routes/jamesBondMovies');
+const harryPotterRouter = require('./routes/harryPotterMovies');
 
 app.use('/movies', moviesRouter);
 app.use('/marvelMovies', marvelRouter);
 app.use('/dcMovies', dcRouter);
+app.use('/starWarsMovies', starWarsRouter);
+app.use('/jamesBondMovies', jamesBondRouter);
+app.use('/harryPotterMovies', harryPotterRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

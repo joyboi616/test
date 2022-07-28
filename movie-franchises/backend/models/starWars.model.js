@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const dcSchema = new Schema({
+const starWarsSchema = new Schema({
   movieTitle: {
     type: String,
     required: true,
@@ -37,6 +37,6 @@ const dcSchema = new Schema({
   timestamps: true,
 });
 
-const DC = mongoose.model('DC', dcSchema);
+const StarWars = mongoose.model('StarWars', starWarsSchema);
 
-module.exports = DC;
+module.exports = StarWars;

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const dcSchema = new Schema({
+const harryPotterSchema = new Schema({
   movieTitle: {
     type: String,
     required: true,
@@ -37,6 +37,6 @@ const dcSchema = new Schema({
   timestamps: true,
 });
 
-const DC = mongoose.model('DC', dcSchema);
+const HarryPotter = mongoose.model('HarryPotter', harryPotterSchema);
 
-module.exports = DC;
+module.exports = HarryPotter;

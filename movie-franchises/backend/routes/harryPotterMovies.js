@@ -1,9 +1,9 @@
 const router = require('express').Router();
-let DC = require('../models/dc.model');
+let HarryPotter = require('../models/harryPotter.model');
 
 router.route('/').get((req, res) => {
-  DC.find()
-    .then(dcMovies => res.json(dcMovies))
+  HarryPotter.find()
+    .then(harryPotterMovies => res.json(harryPotterMovies))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -14,7 +14,7 @@ router.route('/add').post((req, res) => {
   const boxOffice = req.body.boxOffice;
   const rottenTomatoes = req.body.rottenTomatoes;
 
-  const newDcMovie = new DC({
+  const newHarryPotterMovie = new HarryPotter({
     movieTitle,
     director,
     releaseDate,
@@ -22,35 +22,35 @@ router.route('/add').post((req, res) => {
     rottenTomatoes,
   });
 
-  newDcMovie.save()
-    .then(() => res.json('DC Movie added!'))
+  newHarryPotterMovie.save()
+    .then(() => res.json('Harry Potter Movie added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/:id').get((req, res) => {
-  DC.findById(req.params.id)
-    .then(dcMovie => res.json(dcMovie))
+  HarryPotter.findById(req.params.id)
+    .then(harryPotterMovie => res.json(harryPotterMovie))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/:id').delete((req, res) => {
-  DC.findByIdAndDelete(req.params.id)
-    .then(() => res.json('DC Movie deleted.'))
+  HarryPotter.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Harry Potter Movie deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/update/:id').post((req, res) => {
-  DC.findById(req.params.id)
-    .then(dcMovie => {
-      dcMovie.movieTitle = req.body.movieTitle;
-      dcMovie.director = req.body.director;
-      dcMovie.releaseDate = Date.parse(req.body.releaseDate);
-      dcMovie.boxOffice = req.body.boxOffice;
-      dcMovie.rottenTomatoes = req.body.rottenTomatoes;
+  HarryPotter.findById(req.params.id)
+    .then(harryPotterMovie => {
+      harryPotterMovie.movieTitle = req.body.movieTitle;
+      harryPotterMovie.director = req.body.director;
+      harryPotterMovie.releaseDate = Date.parse(req.body.releaseDate);
+      harryPotterMovie.boxOffice = req.body.boxOffice;
+      harryPotterMovie.rottenTomatoes = req.body.rottenTomatoes;
       
 
-      dcMovie.save()
-        .then(() => res.json('DC Movie updated!'))
+      harryPotterMovie.save()
+        .then(() => res.json('Harry Potter Movie updated!'))
         .catch(err => res.status(400).json('Error: ' + err));
     })
     .catch(err => res.status(400).json('Error: ' + err));

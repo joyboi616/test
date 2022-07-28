@@ -7,7 +7,7 @@ const movieSchema = new Schema({
   director: { type: String, required: true },
   releaseDate: { type: Date, required: true },
   boxOffice: { type: String, required: true },
-  rottenTomatoes: { type: Number, required: true },
+  rottenTomatoes: { type: String, required: true },
   
 }, {
   timestamps: true,
