@@ -1,19 +1,19 @@
 const router = require('express').Router();
-let Marvel = require('../models/marvel.model');
+let DC = require('../models/dc.model');
 
 router.route('/').get((req, res) => {
-  Marvel.find()
-    .then(marvelMovies => res.json(marvelMovies))
+  DC.find()
+    .then(dcMovies => res.json(dcMovies))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/add').post((req, res) => {
   const movieTitle = req.body.movieTitle;
 
-  const newMarvelMovie = new Marvel({movieTitle});
+  const newDcMovie = new DC({movieTitle});
 
-  newMarvelMovie.save()
-    .then(() => res.json('Marvel Movie added!'))
+  newDcMovie.save()
+    .then(() => res.json('DC Movie added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
