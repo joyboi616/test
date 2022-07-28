@@ -19,8 +19,10 @@ connection.once('open', () => {
 })
 
 const moviesRouter = require('./routes/movies');
+const marvelRouter = require('./routes/marvelMovies');
 
 app.use('/movies', moviesRouter);
+app.use('/marvelMovies', marvelRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
